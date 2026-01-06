@@ -2,9 +2,11 @@ package com.perpushub.bandung.admin.data.remote
 
 import com.perpushub.bandung.admin.BuildConfig
 import com.perpushub.bandung.admin.data.remote.model.response.GetLoansResponse
+import com.perpushub.bandung.admin.data.remote.model.response.StatusResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
+import io.ktor.client.request.post
 
 class LoanService(
     private val client: HttpClient
@@ -16,8 +18,18 @@ class LoanService(
         return response.body()
     }
 
+    suspend fun deliverLoan(id: Int): StatusResponse {
+        val response = client.post("$baseUrl/loans/$id/deliver")
+        return response.body()
+    }
+
     suspend fun getBorrowed(): GetLoansResponse {
         val response = client.get("$baseUrl/loans/borrowed/admin")
+        return response.body()
+    }
+
+    suspend fun returnLoan(id: Int): StatusResponse {
+        val response = client.post("$baseUrl/loans/${id}/return")
         return response.body()
     }
 }

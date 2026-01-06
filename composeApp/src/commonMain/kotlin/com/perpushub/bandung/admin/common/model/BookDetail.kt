@@ -32,7 +32,7 @@ data class BookDetail(
                 isbn13 = "9780316473095",
                 pageCount = 162,
                 categories = listOf(
-                    Category.Companion.dummies[0]
+                    Category.dummies[0]
                 ),
                 coverUrl = "https://covers.openlibrary.org/b/isbn/9780316473095-L.jpg",
                 language = "en"
@@ -50,7 +50,7 @@ data class BookDetail(
                 isbn13 = "9781975399368",
                 pageCount = 0,
                 categories = listOf(
-                    Category.Companion.dummies[1]
+                    Category.dummies[1]
                 ),
                 coverUrl = "https://covers.openlibrary.org/b/isbn/9781975399368-L.jpg",
                 language = "en"
@@ -68,7 +68,7 @@ data class BookDetail(
                 isbn13 = "9781939130839",
                 pageCount = 0,
                 categories = listOf(
-                    Category.Companion.dummies[0]
+                    Category.dummies[0]
                 ),
                 coverUrl = "https://covers.openlibrary.org/b/isbn/9781939130839-L.jpg",
                 language = "en"
@@ -86,7 +86,7 @@ data class BookDetail(
                 isbn13 = "9781632360564",
                 pageCount = 0,
                 categories = listOf(
-                    Category.Companion.dummies[0]
+                    Category.dummies[0]
                 ),
                 coverUrl = "https://covers.openlibrary.org/b/isbn/9781632360564-L.jpg",
                 language = "en"
@@ -104,7 +104,7 @@ data class BookDetail(
                 isbn13 = "9781632360571",
                 pageCount = 0,
                 categories = listOf(
-                    Category.Companion.dummies[0]
+                    Category.dummies[0]
                 ),
                 coverUrl = "https://covers.openlibrary.org/b/isbn/9781632360571-L.jpg",
                 language = "en"
@@ -122,7 +122,7 @@ data class BookDetail(
                 isbn13 = "9781632360588",
                 pageCount = 0,
                 categories = listOf(
-                    Category.Companion.dummies[0]
+                    Category.dummies[0]
                 ),
                 coverUrl = "https://covers.openlibrary.org/b/isbn/9781632360588-L.jpg",
                 language = "en"
@@ -140,7 +140,7 @@ data class BookDetail(
                 isbn13 = "9781632360595",
                 pageCount = 0,
                 categories = listOf(
-                    Category.Companion.dummies[0]
+                    Category.dummies[0]
                 ),
                 coverUrl = "https://covers.openlibrary.org/b/isbn/9781632360595-L.jpg",
                 language = "en"
@@ -158,7 +158,7 @@ data class BookDetail(
                 isbn13 = "9781632360601",
                 pageCount = 0,
                 categories = listOf(
-                    Category.Companion.dummies[0]
+                    Category.dummies[0]
                 ),
                 coverUrl = "https://covers.openlibrary.org/b/isbn/9781632360601-L.jpg",
                 language = "en"
@@ -176,7 +176,7 @@ data class BookDetail(
                 isbn13 = "9781632360618",
                 pageCount = 0,
                 categories = listOf(
-                    Category.Companion.dummies[0]
+                    Category.dummies[0]
                 ),
                 coverUrl = "https://covers.openlibrary.org/b/isbn/9781632360618-L.jpg",
                 language = "en"
@@ -194,7 +194,7 @@ data class BookDetail(
                 isbn13 = "9781632362223",
                 pageCount = 0,
                 categories = listOf(
-                    Category.Companion.dummies[0]
+                    Category.dummies[0]
                 ),
                 coverUrl = "https://covers.openlibrary.org/b/isbn/9781632362223-L.jpg",
                 language = "en"
@@ -212,7 +212,7 @@ data class BookDetail(
                 isbn13 = "9781421580364",
                 pageCount = 224,
                 categories = listOf(
-                    Category.Companion.dummies[0]
+                    Category.dummies[0]
                 ),
                 coverUrl = "https://covers.openlibrary.org/b/isbn/9781421580364-L.jpg",
                 language = "en"
@@ -230,7 +230,7 @@ data class BookDetail(
                 isbn13 = "9781421580371",
                 pageCount = 208,
                 categories = listOf(
-                    Category.Companion.dummies[0]
+                    Category.dummies[0]
                 ),
                 coverUrl = "https://covers.openlibrary.org/b/isbn/9781421580371-L.jpg",
                 language = "en"
@@ -248,7 +248,7 @@ data class BookDetail(
                 isbn13 = "9781421580388",
                 pageCount = 0,
                 categories = listOf(
-                    Category.Companion.dummies[0]
+                    Category.dummies[0]
                 ),
                 coverUrl = "https://covers.openlibrary.org/b/isbn/9781421580388-L.jpg",
                 language = "en"
@@ -266,7 +266,7 @@ data class BookDetail(
                 isbn13 = "9781421580395",
                 pageCount = 192,
                 categories = listOf(
-                    Category.Companion.dummies[0]
+                    Category.dummies[0]
                 ),
                 coverUrl = "https://covers.openlibrary.org/b/isbn/9781421580395-L.jpg",
                 language = "en"
@@ -284,7 +284,7 @@ data class BookDetail(
                 isbn13 = "9781421580401",
                 pageCount = 200,
                 categories = listOf(
-                    Category.Companion.dummies[0]
+                    Category.dummies[0]
                 ),
                 coverUrl = "https://covers.openlibrary.org/b/isbn/9781421580401-L.jpg",
                 language = "en"
@@ -302,7 +302,7 @@ data class BookDetail(
                 isbn13 = "9781421580418",
                 pageCount = 200,
                 categories = listOf(
-                    Category.Companion.dummies[0]
+                    Category.dummies[0]
                 ),
                 coverUrl = "https://covers.openlibrary.org/b/isbn/9781421580418-L.jpg",
                 language = "en"

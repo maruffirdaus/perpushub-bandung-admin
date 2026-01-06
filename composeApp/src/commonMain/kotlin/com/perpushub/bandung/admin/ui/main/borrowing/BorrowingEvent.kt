@@ -7,7 +7,7 @@ sealed class BorrowingEvent {
     object OnRequestsRefresh : BorrowingEvent()
     object OnDeliveriesRefresh : BorrowingEvent()
     object OnLoansRefresh : BorrowingEvent()
-    class OnLoanRequestApprove(val id: Int) : BorrowingEvent()
+    class OnLoanRequestApprove(val id: Int, val bookId: Int, val dueDate: String) : BorrowingEvent()
     class OnLoanRequestReject(val id: Int) : BorrowingEvent()
     class OnBookDeliver(val id: Int) : BorrowingEvent()
     class OnBookReturn(val id: Int) : BorrowingEvent()

@@ -211,7 +211,7 @@ fun BorrowedItem(
                             it.fillMaxWidth()
                         }
                     },
-                disabled = loan.status != LoanStatus.IN_DELIVERY
+                disabled = loan.status == LoanStatus.RETURNED
             ) {
                 Text("Buku sudah dikembalikan")
             }

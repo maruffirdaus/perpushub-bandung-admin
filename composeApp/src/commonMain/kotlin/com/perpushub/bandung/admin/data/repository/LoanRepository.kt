@@ -11,8 +11,22 @@ class LoanRepository(
         return response.data ?: throw Exception(response.message)
     }
 
+    suspend fun deliverLoan(id: Int) {
+        val response = service.deliverLoan(id)
+        if (response.status != "success") {
+            throw Exception(response.message)
+        }
+    }
+
     suspend fun getBorrowed(): List<Loan> {
         val response = service.getBorrowed()
         return response.data ?: throw Exception(response.message)
+    }
+
+    suspend fun returnLoan(id: Int) {
+        val response = service.returnLoan(id)
+        if (response.status != "success") {
+            throw Exception(response.message)
+        }
     }
 }

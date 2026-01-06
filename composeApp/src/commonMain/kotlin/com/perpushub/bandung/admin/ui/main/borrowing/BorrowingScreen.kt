@@ -181,7 +181,13 @@ private fun ColumnScope.RequestsSection(
                             onNavigate(MainNavKey.BookDetail(loanRequest.book.id))
                         },
                         onApproveClick = {
-                            onEvent(BorrowingEvent.OnLoanRequestApprove(loanRequest.id))
+                            onEvent(
+                                BorrowingEvent.OnLoanRequestApprove(
+                                    loanRequest.id,
+                                    loanRequest.book.id,
+                                    loanRequest.dueDate
+                                )
+                            )
                         },
                         onRejectClick = {
                             onEvent(BorrowingEvent.OnLoanRequestReject(loanRequest.id))

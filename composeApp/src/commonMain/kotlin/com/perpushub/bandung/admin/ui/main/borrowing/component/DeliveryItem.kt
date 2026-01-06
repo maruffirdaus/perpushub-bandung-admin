@@ -200,7 +200,7 @@ fun DeliveryItem(
                             it.fillMaxWidth()
                         }
                     },
-                disabled = loan.status != LoanStatus.IN_DELIVERY
+                disabled = loan.status == LoanStatus.IN_DELIVERY
             ) {
                 Text("Buku sudah dikirim")
             }

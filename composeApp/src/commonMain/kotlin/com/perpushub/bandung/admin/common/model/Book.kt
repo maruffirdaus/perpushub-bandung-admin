@@ -11,7 +11,7 @@ data class Book(
     val coverUrl: String
 ) {
     companion object {
-        val dummies = BookDetail.Companion.dummies.map {
+        val dummies = BookDetail.dummies.map {
             Book(
                 id = it.id,
                 title = it.title,

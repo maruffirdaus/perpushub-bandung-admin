@@ -2,6 +2,8 @@ package com.perpushub.bandung.admin.ui.main.borrowing
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.perpushub.bandung.admin.common.model.BookCopyStatus
+import com.perpushub.bandung.admin.data.repository.BookRepository
 import com.perpushub.bandung.admin.data.repository.LoanRepository
 import com.perpushub.bandung.admin.data.repository.LoanRequestRepository
 import com.perpushub.bandung.admin.ui.common.messaging.UiError
@@ -15,6 +17,7 @@ import kotlinx.coroutines.launch
 class BorrowingViewModel(
     private val loanRequestRepository: LoanRequestRepository,
     private val loanRepository: LoanRepository,
+    private val bookRepository: BookRepository,
     private val uiMessageManager: UiMessageManager
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(BorrowingUiState())
@@ -26,7 +29,7 @@ class BorrowingViewModel(
             is BorrowingEvent.OnRequestsRefresh -> refreshRequests()
             is BorrowingEvent.OnDeliveriesRefresh -> refreshDeliveries()
             is BorrowingEvent.OnLoansRefresh -> refreshLoans()
-            is BorrowingEvent.OnLoanRequestApprove -> approveLoanRequest(event.id)
+            is BorrowingEvent.OnLoanRequestApprove -> approveLoanRequest(event.id, event.bookId, event.dueDate)
             is BorrowingEvent.OnLoanRequestReject -> rejectLoanRequest(event.id)
             is BorrowingEvent.OnBookDeliver -> deliverBook(event.id)
             is BorrowingEvent.OnBookReturn -> returnBook(event.id)
@@ -96,15 +99,21 @@ class BorrowingViewModel(
         }
     }
 
-    private fun approveLoanRequest(id: Int) {
+    private fun approveLoanRequest(id: Int, bookId: Int, dueDate: String) {
         viewModelScope.launch {
             _uiState.update {
                 it.copy(isLoading = true)
             }
             try {
-
-                _uiState.update {
-                    it.copy(deliveries = loanRepository.getInDelivery())
+                val copies = bookRepository.getBookCopies(bookId)
+                val availableCopy = copies.find { it.status == BookCopyStatus.AVAILABLE }
+                if (availableCopy != null) {
+                    loanRequestRepository.approveSubmitted(id, availableCopy.id, dueDate)
+                    _uiState.update {
+                        it.copy(requests = loanRequestRepository.getSubmitted())
+                    }
+                } else {
+                    uiMessageManager.emitMessage(UiError("Salinan tidak tersedia."))
                 }
             } catch (e: Exception) {
                 uiMessageManager.emitMessage(UiError(e.message ?: "Unknown error."))
@@ -122,9 +131,9 @@ class BorrowingViewModel(
                 it.copy(isLoading = true)
             }
             try {
-
+                loanRequestRepository.rejectSubmitted(id)
                 _uiState.update {
-                    it.copy(deliveries = loanRepository.getInDelivery())
+                    it.copy(requests = loanRequestRepository.getSubmitted())
                 }
             } catch (e: Exception) {
                 uiMessageManager.emitMessage(UiError(e.message ?: "Unknown error."))
@@ -142,7 +151,7 @@ class BorrowingViewModel(
                 it.copy(isLoading = true)
             }
             try {
-
+                loanRepository.deliverLoan(id)
                 _uiState.update {
                     it.copy(deliveries = loanRepository.getInDelivery())
                 }
@@ -162,9 +171,9 @@ class BorrowingViewModel(
                 it.copy(isLoading = true)
             }
             try {
-
+                loanRepository.returnLoan(id)
                 _uiState.update {
-                    it.copy(deliveries = loanRepository.getInDelivery())
+                    it.copy(loans = loanRepository.getBorrowed())
                 }
             } catch (e: Exception) {
                 uiMessageManager.emitMessage(UiError(e.message ?: "Unknown error."))

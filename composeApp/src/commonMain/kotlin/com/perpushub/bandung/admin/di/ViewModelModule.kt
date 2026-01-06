@@ -9,5 +9,5 @@ import org.koin.dsl.module
 val viewModelModule = module {
     viewModel { HomeViewModel(get(), get()) }
     viewModel { (id: Int) -> BookDetailViewModel(id, get(), get(), get(), get()) }
-    viewModel { BorrowingViewModel(get(), get(), get()) }
+    viewModel { BorrowingViewModel(get(), get(), get(), get()) }
 }
