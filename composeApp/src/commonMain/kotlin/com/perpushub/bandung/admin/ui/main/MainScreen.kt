@@ -1,7 +1,8 @@
 package com.perpushub.bandung.admin.ui.main
 
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.safeContentPadding
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -94,7 +95,9 @@ fun MainScreenContent(
                 )
             }
         },
-        modifier = Modifier.safeContentPadding(),
+        modifier = Modifier
+            .systemBarsPadding()
+            .imePadding(),
         displayMode = if (isAtLeastExpandedBreakpoint) {
             NavigationDisplayMode.Left
         } else if (isAtLeastMediumBreakpoint) {
