@@ -35,9 +35,7 @@ jobs:
           path: deploy
 
       - name: Copy Build Output
-        run: |
-          rm -rf deploy/*
-          cp -r composeApp/build/dist/wasmJs/productionExecutable/* deploy/
+        run: rsync -av --delete --exclude 'CNAME' composeApp/build/dist/wasmJs/productionExecutable/ deploy/
 
       - name: Commit and Push Deployment
         run: |

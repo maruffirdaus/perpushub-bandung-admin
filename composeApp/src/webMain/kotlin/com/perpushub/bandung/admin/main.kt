@@ -34,6 +34,10 @@ fun main() {
                 else -> null
             }
         }
-        App()
+        App(
+            backButtonEnabled = false,
+            appBackStack = appBackStack,
+            mainBackStack = mainBackStack
+        )
     }
 }
